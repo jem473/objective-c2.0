@@ -17,20 +17,28 @@
 	NSLog(@"%i/%i", numerator, denominator);
 }
 
+-(void) setTo: (int) n over: (int) d {
+	numerator = n;
+	denominator = d;
+}
+
 -(double) convertToNum {
 	return (double) numerator / denominator;
 }
 
 -(Fraction *) add: (Fraction *) f {
 	// a/b + c/d = ((a*d) + (b*c)) / (b * d)
-	numerator = numerator * f.denominator + denominator * f.numerator;
-	denominator = denominator * f.denominator;
+	Fraction *new = [[Fraction alloc] init];
+	[new setTo: numerator * f.denominator + denominator * f.numerator
+		  over: denominator * f.denominator];
 	
-	[self reduce];
+	[new reduce];
+	
+	return new;
 }
 
 -(void) reduce {
-	int u = nunerator;
+	int u = numerator;
 	int v = denominator;
 	int temp;
 	
