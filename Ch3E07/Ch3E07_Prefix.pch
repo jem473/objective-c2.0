@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Ch3E07' target in the 'Ch3E07' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
